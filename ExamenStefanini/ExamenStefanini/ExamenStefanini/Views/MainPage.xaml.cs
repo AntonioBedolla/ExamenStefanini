@@ -4,15 +4,17 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamenStefanini.ViewModels;
 using Xamarin.Forms;
 
-namespace ExamenStefanini
+namespace ExamenStefanini.Views
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainPageViewModel();
         }
     }
 }
