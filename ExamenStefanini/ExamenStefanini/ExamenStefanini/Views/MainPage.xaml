@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Models="clr-namespace:ExamenStefanini.Models"
+             x:Class="ExamenStefanini.Views.MainPage">
+
+    <StackLayout>
+        <SearchBar Placeholder="Categoria"/>
+        <CollectionView ItemsSource="{Binding Items}" x:Name="AppList" SelectedItem="{Binding AppSelection, Mode=TwoWay}" SelectionChangedCommand="{Binding NavigationCommand, Mode=TwoWay}"
+                        SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="Models:Applications">
+                    <StackLayout>
+                       <Image Source="{Binding ImageName}"/>
+                        <Label Text="{Binding Name}" FontSize="Title" FontAttributes="Bold"/>
+                        <Label Text="{Binding Developer}" FontSize="Subtitle"/>
+                        <Label Text="{Binding Price}" FontSize="Medium" FontAttributes="Bold"/>
+                     </StackLayout>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>
+
